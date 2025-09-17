@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Mostrar fecha y hora cada segundo</title>
+</head>
+<body>
+<script>
+    let fechaInicial = new Date();
+    let intervalo = setInterval(()=>{
+        let fecha = new Date();
+        document.write(`<p>${fecha.toLocaleString("es")}</p>`)
+        //si pasan 30 segundos de la fecha inicial
+        //cancelamos el intervalo
+        if(fecha.getTime() - fechaInicial.getTime()
+            > 30000){
+            clearInterval(intervalo);
+        }
+    }, 1000)
+</script>
+</body>
+</html>

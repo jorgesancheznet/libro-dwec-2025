@@ -1,0 +1,44 @@
+*{
+    font-family: sans-serif;
+}
+header{
+    text-align: center;
+}
+
+table{
+    margin:0 auto;
+}
+#resultados{
+    text-align: center;
+}
+#resultados figure{
+    display: inline-block;
+    margin: 10px;
+    text-align: center;
+    width: 100px;
+}
+
+#resultados img{
+    width:100%;
+}
+
+
+#imagenGrande {
+    position: fixed;
+    display: none;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    /* Ajustes para que la imagen ocupe toda la pantalla */
+    background-color:  black;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.error{
+    background-color: red;
+    color:white;
+    font-weight: bold;
+}

@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Validar Código Postal</title>
+</head>
+<body>
+<script>
+    let cp = prompt("Escribe el código postal");
+    let expReg = /^((0[1-9][0-9]{3})|([1-4][0-9]{4})|(5[0-2][0-9]{3}))$/
+    if(expReg.test(cp)) {
+        alert("El código postal es válido");
+    } else {
+        alert("El código postal no es válido");
+    }
+</script>
+</body>
+</html>

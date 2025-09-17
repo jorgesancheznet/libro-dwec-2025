@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Lectura de fechas</title>
+</head>
+<body>
+<script>
+    let fecha = prompt("Introduce una fecha en formato dd-mm-yyyy");
+    let partesFecha = fecha.split("-");
+    if (partesFecha.length !== 3) {
+        alert("Error: La fecha debe tener el formato dd-mm-yyyy.");
+    } else {
+        let dia = parseInt(partesFecha[0]);
+        let mes = parseInt(partesFecha[1]);
+        let anio = parseInt(partesFecha[2]);
+        //Se resta uno al mes porque en JavaScript los
+        // meses empiezan desde 0 (enero es 0, febrero
+        // es 1, etc.)
+        let fechaDate = new Date(anio, mes - 1, dia);
+        //comprobamos si la fecha es válida contrastando
+        //los datos introducidos con los de la
+        // fecha creada
+        if (fechaDate.getFullYear() !== anio ||
+            fechaDate.getMonth() !== mes - 1 ||
+            fechaDate.getDate() !== dia) {
+            alert("Error: Fecha no válida.");
+        } else {
+            document.write("<p>Fecha en formato español:" +
+            fechaDate.toLocaleString("es") + "</p>");
+            document.write("<p>Fecha en formato británico:" +
+            fechaDate.toLocaleString("en-US") + "</p>");
+        }
+    }
+</script>
+</body>
+</html>
+
+

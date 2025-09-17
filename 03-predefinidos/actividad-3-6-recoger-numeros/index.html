@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Lectura de números</title>
+</head>
+<body>
+<script>
+    /**
+     * Vamos a realizar una actividad simple para aplicar el uso de los arrays.
+     * •	Nuestra aplicación irá pidiendo números enteros mediante cuadros de tipo prompt
+     * •	Continuará hasta que dejemos vacío el cuadro o pulsemos el botón cancelar.
+     * •	Si alguna vez el usuario no introduce un número entero, se informará del error y se le permitirá escribir otro.
+     * •	Al final se muestra una lista de los números introducidos, luego esa misma lista en orden ascendente y luego la lista de los números pero al revés respecto a cómo se introdujeron.
+     */
+    let numeros = [];
+    let numero;
+    let salir = false;
+    do {
+        numero = prompt("Introduce un número entero (deja vacío o pulsa cancelar para terminar):");
+        // Abandonamos el bucle si se pulsa cancelar o se deja vacío el número
+        salir = (numero === null);
+
+        // Comprobamos si es un número entero
+        if (!salir) {
+            // Usamos Number para convertir el string a número
+            numero = Number(numero);
+            if(isNaN(numero) || !Number.isInteger(numero)) {
+                alert("Por favor, introduce un número entero válido.");
+            }
+            else {
+                numeros.push(Number(numero)); // Añadimos el número al array
+            }
+        }
+    } while (!salir);
+    //se muestra la lista de números introducidos
+    document.write("<h1>Números introducidos:</h1>");
+    document.write("<ul>");
+    for (let numero of numeros) {
+        document.write("<li>" + numero + "</li>");
+    }
+    document.write("</ul>");
+    //copiamos el array y lo ordenamos
+    let numerosOrdenados = numeros.slice();
+    numerosOrdenados.sort();
+    //se muestra la lista de números ordenados
+    document.write("<h1>Números ordenados:</h1>");
+    document.write("<ul>");
+    for (let numero of numerosOrdenados) {
+        document.write("<li>" + numero + "</li>");
+    }
+    document.write("</ul>");
+    //se muestra la lista de números al revés
+    document.write("<h1>Números al revés:</h1>");
+    document.write("<ul>");
+    numeros.reverse();
+    for(let numero of numeros){
+        document.write("<li>" + numero + "</li>");
+    }
+    document.write("</ul>");
+</script>
+</body>
+</html>

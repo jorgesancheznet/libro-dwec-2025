@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de tareas</title>
+</head>
+<body>
+<main>
+    <h1>Lista de tareas</h1>
+    <ol></ol>
+</main>
+<script>
+    const ol = document.querySelector("ol");
+    let cont = 1;
+    let textoTarea = prompt("Escribe la primera tarea");
+    while(textoTarea!=null && textoTarea.trim() !== ""){
+        //Creamos la nueva tarea
+        let liTarea = document.createElement("li");
+        //Añadimos el texto escrito, pero quitando
+        //espacios innecesarios
+        liTarea.innerText = textoTarea.trim();
+        ol.appendChild(liTarea);
+        cont++;
+        textoTarea = prompt("Escribe la tarea nº " + cont);
+    }
+    //ordenar la lista de forma alfabética
+
+</script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Clase capaz de dibujar tablas</title>
+    <script src="tabla.js"></script>
+</head>
+<body>
+<script>
+    let t1 = new Tabla();
+    t1.dibujar();
+
+    let t2 = new Tabla(20,10);
+    t2.dibujar();
+    t2.color = "red";
+    t2.dibujar();
+
+    let arrayTablas = [];
+    for(let i = 0; i < 10; i++){
+        arrayTablas.push(new Tabla(5,4,"green"));
+    }
+    //dibujar todas las tablas
+    arrayTablas.forEach(tabla => {tabla.dibujar()})
+</script>
+</body>
+</html>

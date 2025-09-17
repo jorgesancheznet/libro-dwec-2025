@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Documento de ejemplo para pruebas de búsqueda y resaltado</title>
+</head>
+<body>
+<main>
+    <h1>Manual de Desarrollo en Entorno Cliente: Texto de Prueba Extenso</h1>
+
+    <section>
+        <h2>Fundamentos del DOM y el BOM</h2>
+        <p>El Modelo de Objetos del Documento (DOM) representa la página como una estructura en forma de árbol donde
+            cada nodo es un elemento, un atributo o un fragmento de texto. Esta representación permite a JavaScript
+            recorrer, consultar y modificar el documento en tiempo real.</p>
+        <p>El Modelo de Objetos del Navegador (BOM) proporciona acceso a funcionalidades propias del navegador, como la
+            ventana principal, el historial, la barra de direcciones y el tamaño de la pantalla. Aunque no es un
+            estándar formal como el DOM, está ampliamente soportado.</p>
+        <p>Los métodos más utilizados para seleccionar nodos del DOM son "document.getElementById",
+            "document.querySelector" y "document.querySelectorAll". Cada uno ofrece ventajas distintas en rendimiento,
+            expresividad y compatibilidad con selectores CSS.</p>
+        <p>Modificar el DOM de forma eficiente requiere minimizar repintados y reflow. Para ello es habitual usar
+            "DocumentFragment" y realizar agrupaciones de operaciones antes de insertar los cambios en el árbol
+            principal.</p>
+        <p>La propiedad "textContent" es la forma recomendada de ajustar el contenido textual de un nodo, ya que evita
+            la interpretación de HTML. Por el contrario, "innerHTML" inserta y analiza cadenas como marcado, lo que
+            implica riesgos de seguridad si no se sanea la entrada.</p>
+        <p>El objeto "window" actúa como contenedor global en navegadores. Muchas funciones, como "setTimeout" o
+            "alert", pertenecen a "window" y pueden invocarse directamente sin prefijo debido al encadenamiento del
+            objeto global.</p>
+        <p>Para inspeccionar y depurar el DOM resulta útil la consola del navegador. Métodos como "console.log",
+            "console.table" y el inspector de elementos permiten observar estados intermedios y verificar
+            selectores.</p>
+        <p>La interoperabilidad entre distintos navegadores se apoya en estándares del W3C y WHATWG. Aun así, conviene
+            revisar compatibilidades en tablas como MDN y evitar APIs obsoletas cuando existan alternativas
+            modernas.</p>
+    </section>
+
+    <section>
+        <h2>Manipulación de Elementos y Atributos</h2>
+        <p>Crear nodos dinámicamente se realiza con "document.createElement" para elementos y "document.createTextNode"
+            para textos. Una vez creados, se insertan con "append", "appendChild", "prepend" o "insertBefore" según la
+            posición deseada.</p>
+        <p>Los atributos HTML pueden leerse y escribirse con "getAttribute" y "setAttribute". Para atributos booleanos,
+            como "disabled" o "checked", suele preferirse el acceso directo a la propiedad correspondiente del
+            elemento.</p>
+        <p>La gestión de clases CSS se simplifica con "element.classList", que ofrece métodos como "add", "remove",
+            "toggle" y "contains". Esta API facilita la activación de estados visuales sin manipular manualmente la
+            cadena del atributo "class".</p>
+        <p>Para rendimiento, conviene evitar bucles que inserten muchos nodos directamente en el DOM. Es mejor construir
+            el contenido en un "DocumentFragment" y realizar una sola inserción final, reduciendo el coste de
+            repintado.</p>
+        <p>La lectura y escritura de estilos en línea se hace con "element.style". Sin embargo, lo ideal es alternar
+            clases y delegar los detalles visuales a hojas de estilo, manteniendo el JavaScript centrado en la
+            lógica.</p>
+        <p>Al reemplazar contenido, es recomendable limpiar referencias a nodos antiguos para que el recolector de
+            basura pueda liberar memoria. También es buena práctica usar "element.replaceChildren" cuando se quiere
+            vaciar y poblar un contenedor de una vez.</p>
+        <p>El texto del usuario debe sanearse para prevenir inyecciones. Si se necesita insertar HTML dinámico, se debe
+            validar y escapar correctamente, o utilizar APIs que creen nodos de forma estructurada en lugar de
+            concatenar cadenas.</p>
+        <p>Cuando se manipulan colecciones de elementos, métodos como "Array.from" y el operador de propagación permiten
+            convertir "NodeList" en arreglos y aprovechar funciones como "map", "filter" o "forEach" para
+            transformaciones expresivas.</p>
+    </section>
+
+    <section>
+        <h2>Buenas Prácticas, Almacenamiento y Depuración</h2>
+        <p>El almacenamiento web incluye "localStorage" y "sessionStorage", útiles para recordar preferencias y estados
+            entre recargas. Ambas APIs guardan pares clave-valor en formato cadena y exigen serializar objetos con
+            "JSON.stringify".</p>
+        <p>La lectura de datos almacenados debe manejar errores de parseo y valores ausentes. El patrón habitual es
+            envolver "JSON.parse" en un bloque "try/catch" y proporcionar valores por defecto cuando falten datos.</p>
+        <p>Para mejorar la accesibilidad, cualquier cambio dinámico en el DOM debe respetar la semántica. Elementos como
+            encabezados, listas y secciones ayudan a que lectores de pantalla y motores de búsqueda comprendan la
+            estructura.</p>
+        <p>La depuración se apoya en puntos de interrupción y el panel "Sources" de las herramientas de desarrollador.
+            Colocar "breakpoints", inspeccionar el "scope" y vigilar llamadas permite detectar estados
+            inconsistentes.</p>
+        <p>El rendimiento puede medirse con el panel "Performance". Esta herramienta registra repintados, tareas de
+            scripting y eventos de entrada para identificar cuellos de botella y optimizar interacciones complejas.</p>
+        <p>Cuando se necesite buscar texto dentro del documento, recorrer nodos de tipo texto con "TreeWalker" evita
+            problemas de coincidencias dentro de etiquetas y ofrece control preciso sobre los fragmentos
+            reemplazados.</p>
+        <p>La seguridad en el cliente implica evitar el uso de "eval" y reducir dependencias no verificadas. Del mismo
+            modo, las entradas del usuario deben validarse tanto en el cliente como en el servidor.</p>
+        <p>Documentar el código con comentarios claros y mantener una estructura modular facilita el mantenimiento.
+            Establecer convenciones de formato y nombres coherentes mejora la legibilidad y reduce errores durante la
+            ampliación del proyecto.</p>
+    </section>
+</main>
+<script src="accion.js"></script>
+</body>
+</html>

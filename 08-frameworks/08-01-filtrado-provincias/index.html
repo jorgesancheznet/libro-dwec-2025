@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Filtro de comunidades</title>
+</head>
+<body>
+<section id="app">
+    <input v-model="filtro" placeholder="Filtrar comunidades">
+    <ul>
+        <li v-for="comunidad in comunidadesFiltradas" :key="comunidad">
+            {{ comunidad }}
+        </li>
+    </ul>
+</section>
+<script type="module">
+    import { createApp } from
+            "https://unpkg.com/vue@3/dist/vue.esm-browser.js";
+    createApp({
+        data() {
+            return {
+                filtro: "",
+                comunidades: [
+                    "Andalucía", "Aragón", "Asturias", "Baleares",
+                    "Canarias", "Cantabria", "Castilla y León",
+                    "Castilla-La Mancha", "Cataluña", "Comunidad Valenciana",
+                    "Extremadura", "Galicia", "La Rioja", "Madrid",
+                    "Murcia", "Navarra", "País Vasco", "Ceuta", "Melilla"
+                ]
+            }
+        },
+        computed: {
+            comunidadesFiltradas() {
+                const filtroMinusculas = this.filtro.toLowerCase();
+                return this.comunidades.filter(comunidad =>
+                    comunidad.toLowerCase().includes(filtroMinusculas)
+                );
+            }
+        }
+    }).mount("#app");
+</script>
+</body>
+</html>

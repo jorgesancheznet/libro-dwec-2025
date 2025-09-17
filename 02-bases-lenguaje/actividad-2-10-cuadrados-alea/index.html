@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Cuadrados aleatorios</title>
+</head>
+<body>
+<script>
+    const NUM_CUADRADOS = 1000; //número de cuadrados a generar
+    let colorRojo, colorVerde, colorAzul; //variables para los colores RGB
+    let posicionX, posicionY; //variables para la posición de los cuadrados
+    for(let i = 1;i <= NUM_CUADRADOS;i++){
+        // Generación de colores aleatorios
+        colorRojo = parseInt(Math.random() * 256);
+        colorVerde = parseInt(Math.random() * 256);
+        colorAzul = parseInt(Math.random() * 256);
+        //Generación de posiciones aleatorias
+        // mediante números de 0 a 100%
+        posicionX = (Math.random() * 100)+"%";
+        posicionY = (Math.random() * 100)+"%";
+        // Generación de acuadrados aleatorios
+        document.write(`<div id='cuadrado${i}'`+
+        ` style='position:fixed; width: 50px; height: 50px; ` +
+        `background-color: rgb(${colorRojo}, ${colorVerde}, ${colorAzul});` +
+        `top: ${posicionY}; left: ${posicionX};'></div>`);
+    }
+</script>
+</body>
+</html>

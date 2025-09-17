@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Agrupación de alumnos</title>
+</head>
+<body>
+<script>
+    /*
+    •	Suponemos que en un aula tenemos 32 alumnos. Les hemos numerado de forma consecutiva de 1 a 32,
+•	Queremos agruparles de forma aleatoria en 8 grupos de 4 alumnos
+•	Haz un programa que muestre por pantalla los integrantes de cada uno de los grupos.
+•	Se mostrarán los números de los alumnos de cada grupo y, lógicamente, asegurando que no aparece dos veces el mismo alumno en distintos grupos y que todos los alumnos forman parte de algún grupo.
+
+     */
+    const N_ALUMNOS = 32;
+    //Rellenamos el array alumnos con los números del 1 al 32
+    let alumnos = [];
+    for (let i = 1; i <= N_ALUMNOS; i++) {
+        alumnos[i] = i;
+    }
+    //Desordenamos el array de forma aleatoria
+    //hacemos 1000 swaps aleatorios
+    for (let i = 1; i <= 1000; i++) {
+        let a = parseInt(Math.random() * N_ALUMNOS + 1)
+        let b = parseInt(Math.random() * N_ALUMNOS + 1)
+        //hacemos el swap usando una variable temporal
+        let temp = alumnos[a];
+        alumnos[a] = alumnos[b];
+        alumnos[b] = temp;
+        // También podríamos hacer el swap usando
+        // desestructuración de arrays:
+        // [alumnos[a], alumnos[b]] = [alumnos[b], alumnos[a]];
+    }
+
+    //mostramos los grupos
+    document.write("<h1>Grupos de alumnos</h1>");
+    let cont = 1; //contador para recorrer el array de alumnos
+    for(let nGrupo = 1; nGrupo <= 8; nGrupo++) {
+        document.write(`<h2>Grupo ${nGrupo}</h2>`);
+        document.write("<ul>");
+        for(let i = 0; i < 4; i++) {
+            //mostramos los alumnos del grupo
+            document.write(`<li>Alumno ${alumnos[cont]}</li>`);
+            cont++;
+        }
+        document.write("</ul>");
+    }
+</script>
+</body>
+</html>

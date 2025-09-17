@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Cifrado estilo polialfabético</title>
+</head>
+<body>
+<script>
+    let texto = prompt("Escriba el texto que desea cifrar");
+    let clave = prompt("Escriba la clave (una serie de números");
+    let i = 0; //i se encarga de recorrer las cifras de la clave
+    let textoCifrado = "";
+    if(isNaN(clave)){
+        alert("La clave no es un número");
+    }
+    else {
+        for (let letra of texto) {
+            // Obtenemos la siguiente cifra y la convertimos a número
+            let cifra = Number(clave.charAt(i));
+            let cifrado = letra.charCodeAt(letra) + cifra
+            textoCifrado += String.fromCharCode(cifrado);
+            i++;
+            //Reiniciamos el contador i si ha sobrepasado la clave
+            if (i === clave.length) i = 0;
+        }
+        document.write(textoCifrado);
+    }
+</script>
+</body>
+</html>

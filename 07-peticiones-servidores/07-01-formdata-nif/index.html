@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Validación de NIF</title>
+    <style>
+        body{
+            text-align: center;
+        }
+        .error{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+<form action="https://jorgesanchez.net/servicios/validar-NIF.php"
+      method="POST">
+    <label for="nif">Escriba el NIF que desea validar</label><br>
+    <input type="text" id="nif" name="nif"><br>
+    <button>Comprobar</button>
+</form>
+<div id="resultado">
+</div>
+<script>
+    let form=document.querySelector("form");
+    let capaRes=document.getElementById("resultado");
+    let tNIF=document.getElementById("nif");
+    form.addEventListener("submit",(evt)=>{
+        evt.preventDefault(); //Impedimos el envío directo de datos
+        //Recogemos todos los datos del formulario
+        let data=new FormData(form);
+
+        fetch(form.getAttribute("action"), //La URL la tomamos del form
+            {
+                //El método también le tomamos del formulario
+                method:form.getAttribute("method"),
+                body:data
+            })
+            .then(respuesta=>{
+                if(!respuesta.ok)
+                    //Si la respuesta no es correcta, generamos error
+                    //que recogerá el método catch
+                    throw new Error("Error en la petición:" +
+                        respuesta.status);
+                else
+                    return respuesta.json()
+            })
+            .then(datos=>{
+                //Si hay errores añadimos color rojo al mensaje
+                if(datos.error != 0)
+                    capaRes.classList.add("error");
+                else
+                    capaRes.classList.remove("error");
+                //Mostramos el mensaje de respuesta del servidor
+                capaRes.textContent=datos.mensaje;
+            })
+            .catch(err=>{
+                //Ante cualquier error, le mostramos en rojo
+                capaRes.classList.add("error");
+                capaRes.textContent="Error: "+err;
+            })
+    });
+    tNIF.addEventListener("focus",ev=>{
+        capaRes.textContent="";
+        tNIF.selectionStart=0;
+        tNIF.selectionEnd=tNIF.value.length;
+    });
+</script>
+</body>
+</html>

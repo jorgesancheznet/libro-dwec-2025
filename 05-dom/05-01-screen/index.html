@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Dimensiones de la pantalla</title>
+</head>
+<body>
+<script>
+    let anchura = screen.width;
+    let altura = screen.height;
+    let orientacion = screen.orientation.type;
+    let colorProfundidad = screen.colorDepth;
+    if(orientacion.indexOf("landscape") !== -1)
+        orientacion = "horizontal";
+    else
+        orientacion = "vertical";
+    document.write("<p>La anchura de la pantalla es " + anchura + " píxeles</p>");
+    document.write("<p>La altura de la pantalla es " + altura + " píxeles</p>");
+    document.write("<p>La orientación de la pantalla es " + orientacion + "</p>");
+    document.write("<p>La profundidad de color es de " + colorProfundidad + " bits</p>");
+</script>
+</body>
+</html>

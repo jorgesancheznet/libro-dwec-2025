@@ -1,0 +1,1 @@
+document.write("<p>Escribiendo desde un archivo externo</p>");

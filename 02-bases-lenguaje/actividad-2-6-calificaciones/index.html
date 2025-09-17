@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Notas</title>
+</head>
+<body>
+<script>
+    let nota=prompt("Introduce la nota del alumno (0-10):");
+    if(isNaN(nota))
+        alert("Error: Debes introducir un número.");
+    else if(nota < 0 || nota > 10)
+        alert("Error: La nota debe estar entre 0 y 10.");
+    else if(nota < 5)
+        alert("El alumno ha suspendido.");
+    else if(nota < 7)
+        alert("El alumno ha aprobado.");
+    else if(nota < 9)
+        alert("El alumno ha sacado un notable.");
+    else
+        alert("El alumno ha sacado un sobresaliente.");
+</script>
+</body>
+</html>

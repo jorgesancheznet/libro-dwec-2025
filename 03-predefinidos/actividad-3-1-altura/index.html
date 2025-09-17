@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Cálculo de altura de una montaña</title>
+</head>
+<body>
+<script>
+    let distanciaBase = prompt(
+        "Introduce la distancia de la base de la montaña");
+    if(isNaN(distanciaBase) || distanciaBase <= 0) {
+        alert(
+            "Distancia no válida (tiene que ser un número positivo)");
+    }
+    else{
+        let angulo = prompt(
+            "Introduce el ángulo de elevación en grados");
+        if(isNaN(angulo) || angulo <= 0 || angulo >= 90) {
+            alert("Ángulo no válido "+
+                "(tiene que ser un número entre 0 y 90)");
+        } else {
+            let anguloRadianes = angulo * Math.PI / 180;
+            let altura = distanciaBase * Math.tan(anguloRadianes);
+            alert("La altura de la montaña es: " + altura + " metros");
+        }
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Cálculo del precio de la entrada</title>
+</head>
+<body>
+<script>
+    let edad; // Variable para almacenar la edad del usuario
+    let estudiante; // Variable para indicar si el usuario es estudiante
+    let continuar; // Variable que permite salir de la aplicación
+    let precio = 0; // Variable para almacenar el precio de la entrada
+    alert("Bienvenido al nuevo musical. "+
+        "Vamos a calcular el precio de tu entrada.");
+
+    edad= prompt("¿Cuál es tu edad? (número entero)");
+    continuar = (edad !== null);
+    while(continuar && (isNaN(edad) || edad < 0)) {
+        alert("Por favor, introduce una edad válida.");
+        edad = prompt("¿Cuál es tu edad? (número entero)");
+        continuar = (edad !== null);
+    }
+
+    if(continuar && edad>17){
+        estudiante = confirm("¿Eres estudiante?");
+    }
+
+    if(continuar){
+        //cálculo del precio
+        if(edad < 12) {
+            precio = 0;
+        } else if (edad >= 12 && edad <= 17) {
+            precio = 10;
+        } else {
+            if(edad>65) precio = 15;
+            else precio = 30;
+
+            if(estudiante) precio -= 10;
+        }
+        // Mostrar el precio final
+        alert(`El precio de tu entrada es: ${precio}€.`);
+    }
+    console.log(continuar)
+</script>
+
+</body>
+</html>

@@ -1,0 +1,1 @@
+console.log(parseInt("101101",2)) 

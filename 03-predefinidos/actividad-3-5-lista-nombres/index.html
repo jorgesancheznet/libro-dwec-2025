@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de personas</title>
+</head>
+<body>
+<script>
+    let alumnos = prompt("Introduce los nombres de las personas" +
+        "separados por comas:");
+    let arrayAlumnos = alumnos.split(",");
+    document.write("<h1>Lista de alumnos</h1>");
+    document.write("<ol>");
+    for(let alumno of arrayAlumnos) {
+        document.write("<li>" + alumno.trim() + "</li>");
+    }
+    document.write("</ol>");
+</script>
+</body>
+</html>

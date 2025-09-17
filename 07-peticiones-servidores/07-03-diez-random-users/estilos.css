@@ -1,0 +1,24 @@
+*{
+    font-family: sans-serif;
+}
+main{
+    text-align: center;
+}
+main section{
+    display:inline-block;
+    padding:.3em;
+}
+main section:nth-of-type(odd){
+    background-color: lightgray;
+}
+main section:hover{
+    background-color:rgb(88, 230, 230);
+}
+p{
+    margin:0;
+}
+.error{
+    background-color:red;
+    color:white;
+    font-weight: bold;
+}

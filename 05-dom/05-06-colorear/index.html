@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Párrafo arrastrable</title>
+    <style>
+        .rojo{color:red}
+        .verde{color:green}
+        .azul{color:blue}
+    </style>
+</head>
+<body>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur cum dignissimos error, expedita fuga, harum
+    ipsum magni minus modi nam neque nesciunt odio quo quod sapiente sed tempora totam veniam.</p>
+<p>A amet autem commodi consectetur dignissimos dolore dolores eaque exercitationem explicabo illo ipsam itaque iure
+    labore magnam minus nisi nulla pariatur placeat quisquam quos recusandae sapiente sequi, totam unde voluptas.</p>
+<p>Ab ad animi architecto at commodi deserunt dignissimos ea eius et explicabo facilis modi mollitia nam neque nihil,
+    placeat quia quibusdam, ratione repellat sed sit temporibus tenetur totam vel voluptate.</p>
+<p>Accusantium earum labore laborum recusandae saepe voluptatibus. Animi aut debitis ea eos facere laborum molestias,
+    nisi possimus vero voluptate. Blanditiis delectus, dolore dolorem eius iste natus neque officia quos temporibus.</p>
+<p>Distinctio impedit in incidunt ipsum laudantium officia quibusdam recusandae? Accusantium amet ducimus temporibus!
+    Consectetur deleniti enim excepturi facere iure praesentium quibusdam sunt? Atque, minus, optio. Aliquid nobis optio
+    veniam. Doloremque.</p>
+<p>Accusamus amet animi consectetur distinctio libero pariatur. Aliquid amet animi blanditiis dolorem doloremque
+    doloribus dolorum eius error fugit, hic ipsum maxime odio quis repudiandae saepe sed, ullam unde veniam
+    voluptates?</p>
+<script>
+    const parrafos = document.querySelectorAll("p");
+    let color = prompt("Elige el color "
+                        + "(rojo, verde o azul");
+    if (color != null) {
+        color = color.toLowerCase();
+        if(["rojo","verde","azul"].includes(color)) {
+            //se ha escrito uno de los colores requeridos
+            for(let parrafo of parrafos) {
+                parrafo.classList.add(color);
+            }
+        }
+        else{
+            alert("Color inválido");
+        }
+    }
+
+</script>
+</body>
+</html>

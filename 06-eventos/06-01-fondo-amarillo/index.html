@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Párrafos que con clic pasan a amarillo y negrita</title>
+    <style>
+        .amarillo {
+            background-color: yellow;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur at earum eum ipsum libero praesentium quisquam
+    quod sapiente voluptate. Aliquid debitis ea fugit reiciendis rerum sit temporibus! Nobis, optio, voluptates.</p>
+<p>Consectetur consequatur dignissimos excepturi, impedit necessitatibus porro quia rem ullam veritatis vitae. Debitis
+    illum laudantium maxime non odit officiis sit suscipit! Asperiores aut expedita laudantium mollitia quae quidem
+    soluta voluptatibus.</p>
+<p>Adipisci alias assumenda blanditiis culpa distinctio dolore doloremque eaque earum, eius eos fugit incidunt iste nam
+    nesciunt non odit optio possimus quas quidem recusandae repudiandae unde ut velit voluptas voluptate!</p>
+<p>Aliquid consequuntur dolorem laboriosam maxime voluptas? Aliquam, aliquid aperiam atque autem blanditiis cum
+    cupiditate in magni minima nulla pariatur perspiciatis quae quaerat quas quidem quo rem rerum sed similique
+    vero!</p>
+<p>Cupiditate delectus deleniti dolorem ea eligendi neque non perferendis, rerum sint velit? Consequuntur corporis
+    deserunt in laudantium neque nostrum optio quaerat. Adipisci assumenda corporis, dolorem earum explicabo provident
+    quae tempore!</p>
+<p>Est labore laudantium neque omnis provident qui veritatis. Deserunt ducimus ea eius harum id necessitatibus, nobis
+    quaerat sapiente. Asperiores autem deleniti dignissimos exercitationem illo labore nisi quaerat sequi vel
+    voluptas.</p>
+<p>Ad aut delectus expedita impedit ratione repellat repudiandae sit vel voluptates. Consequatur corporis delectus ex,
+    in ipsa itaque maiores neque provident qui quidem quisquam, quod reiciendis reprehenderit, repudiandae veniam
+    vitae!</p>
+<p>Ab animi aperiam aspernatur aut beatae blanditiis consequatur delectus dicta doloribus, eos est et eveniet, harum
+    illum in incidunt laboriosam magnam minima non nulla porro repellendus tenetur totam veritatis voluptate!</p>
+<p>A amet dicta doloremque eaque, eius, enim fugiat illo in ipsum iste iusto labore laudantium magni nisi obcaecati
+    sequi, voluptate. Adipisci corporis dolor ipsa laudantium nulla perferendis, quia repudiandae temporibus?</p>
+<p>Commodi corporis est, molestiae quas unde voluptas. Accusamus animi architecto, assumenda commodi, corporis dolor
+    doloremque eligendi fugit illo itaque iure laborum natus nihil odit quasi ratione sapiente sequi, ut
+    voluptatibus!</p>
+<script>
+    window.addEventListener('DOMContentLoaded', ()=> {
+        const parrafos = document.querySelectorAll("p");
+        parrafos.forEach(parrafo => {
+            parrafo.addEventListener("click", ()=> {
+                parrafo.classList.toggle("amarillo");
+            })
+        })
+    });
+</script>
+</body>
+</html>

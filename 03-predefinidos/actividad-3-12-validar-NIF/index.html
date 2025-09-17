@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <title>Validación de NIF</title>
+</head>
+<body>
+<script>
+//Definimos las letras del NIF
+const letrasNIF = "TRWAGMYFPDXBNJZSQVHLCKE";
+//Patrón de expresión regular para validar el NIF
+let regExpNIF = /^[XYZ0-9]\d{7}[A-Z]$/;
+
+let NIF = prompt("Introduce tu NIF (8 números y una letra):").toUpperCase();
+if(!regExpNIF.test(NIF)){
+    alert("El NIF introducido no es válido. " +
+        "Debe tener 8 dígitos seguidos de una letra.");
+}
+else{
+    //preparamos un strings con los números del NIF
+    //no tenemos aun en cuenta la primera cifra
+    let numerosNIF = NIF.slice(1, -1);
+    //convertimos la primera cifra a un número
+    if(isNaN(NIF.charAt(0))){
+        //si es una letra, la convertimos a su valor numérico
+        switch(NIF.charAt(0)){
+            case 'X':
+                numerosNIF = "0" + numerosNIF;
+                break;
+            case 'Y':
+                numerosNIF = "1" + numerosNIF;
+                break;
+            case 'Z':
+                numerosNIF = "2" + numerosNIF;
+                break;
+        }
+    }
+    else {
+        //si es un número, lo dejamos como está
+        numerosNIF = NIF.charAt(0) + numerosNIF;
+    }
+    //convertimos el string a un número
+    let numero = parseInt(numerosNIF, 10);
+    //calculamos el resto
+    let resto = numero % 23;
+    //comprobamos si la letra del NIF es correcta
+    if(NIF.charAt(NIF.length - 1) === letrasNIF.charAt(resto)){
+        alert("El NIF es válido.");
+    } else {
+        alert("El NIF no es válido. " +
+            "La letra correcta debería ser: " +
+            letrasNIF.charAt(resto));
+    }
+}
+</script>
+</body>
+</html>

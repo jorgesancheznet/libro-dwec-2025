@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Cuadrado móvil por teclado</title>
+    <style>
+        body{
+            margin:0;
+        }
+        main {
+            margin: 0;
+            height: 100vh;
+            display: flex; /* Centrado horizontal */
+            justify-content: center; /* Centrado vertical */
+            align-items: center;
+        }
+
+        #cuadrado {
+            width: 50px;
+            height: 50px;
+            background-color: red;
+            position: absolute; /* necesario para mover con top/left */
+        }
+    </style>
+</head>
+<body>
+<main>
+    <div id="cuadrado"></div>
+</main>
+<script src="accion.js"></script>
+</body>
+</html>

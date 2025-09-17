@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Imágenes de la NASA</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+<header>
+    <h1>Imágenes del día de la NASA</h1>
+</header>
+<main>
+    <section id="form">
+        <form action="https://api.nasa.gov/planetary/apod"
+              method="get">
+            <table>
+                <tr>
+                    <th><label for="inicio">Fecha de inicio</label></th>
+                    <th><label for="final">Fecha final</label></th>
+                    <th>&nbsp;</th>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="date" id="inicio" name="start-date">
+                    </td>
+                    <td>
+                        <input type="date" id="final" name="end-date">
+                    </td>
+                    <td>
+                        <button>Cargar imágenes</button>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </section>
+    <section id="resultados">
+
+    </section>
+</main>
+<aside id="imagenGrande"></aside>
+<script src="accion.js"></script>
+</body>
+</html>

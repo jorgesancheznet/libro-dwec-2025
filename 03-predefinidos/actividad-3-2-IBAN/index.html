@@ -1,0 +1,75 @@
+<!--
+•	Crea una aplicación web pida al usuario un número de cuenta bancaria de tipo IBAN a través de un cuadro de tipo prompt
+•	El usuario tendrá que escribir 24 caracteres, de los que los dos primeros son letras y los siguientes 22 son números (si no es así avisaremos del error)
+•	Al final desglosaremos el número de esta forma (escribiremos con document.write):
+o	Código de país: Primeros dos caracteres
+o	Dígitos de control: Siguientes 2
+o	Entidad bancaria: Siguientes 4
+o	Sucursal u oficina: Siguientes 4
+o	Dígitos de control: Siguientes 2
+o	Número de cuenta: Siguientes 10
+-->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <title>Validación de IBAN</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+    </style>
+</head>
+<body>
+<script>
+    let iban = prompt("Introduce un número de cuenta bancaria IBAN (24 caracteres):");
+    let mensaje = "";
+    if(!iban){
+        alert("No se ha introducido ningún IBAN");
+    }
+    else if ( iban.length != 24){
+        alert("El IBAN debe tener exactamente 24 caracteres.");
+    }
+    else {
+        //comprobamos que los dos primeros caracteres son letras
+        let pais = iban.substring(0, 2);
+        //Usamos Number para comprobar si son números
+        //es más precisa que parseInt
+        if(!isNaN(Number(pais))){
+            alert("Los dos primeros caracteres deben ser letras.");
+        }
+        else{
+            //comprobamos que el resto son números
+            let numero = Number(iban.substring(2));
+            if(isNaN(numero)){
+                alert("Hay letras en los dígitos que deben ser números.");
+            }
+            else{
+                //desglose
+                let control1 = iban.substring(2, 4);
+                let entidad = iban.substring(4, 8);
+                let sucursal = iban.substring(8, 12);
+                let control2 = iban.substring(12, 14);
+                let cuenta = iban.substring(14, 24);
+                document.write("<h1>Desglose del IBAN</h1>");
+                document.write("<ul>");
+                document.write("<li><strong>Código de país:</strong> "
+                    + pais + "</li>");
+                document.write("<li><strong>Dígitos de control(1):</strong> "
+                    + control1 + "</li>");
+                document.write("<li><strong>Entidad bancaria:</strong> "
+                    + entidad + "</li>");
+                document.write("<li><strong>Sucursal u oficina:</strong> "
+                    + sucursal + "</li>");
+                document.write("<li><strong>Dígitos de control(2):</strong> "
+                    + control2 + "</li>");
+                document.write("<li><strong>Número de cuenta:</strong> "
+                    + cuenta + "</li>");
+                document.write("</ul>");
+            }
+        }
+    }
+
+</script>
+</body>
+</html>
