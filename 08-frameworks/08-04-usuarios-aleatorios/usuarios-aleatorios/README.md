@@ -1,28 +1,22 @@
-# usuarios-aleatorios
+# cambio-color
 
-This template should help get you started developing with Vue 3 in Vite.
+Proyecto Vue 3 con Vite para la Actividad 8.2 del libro de **Desarrollo de Aplicaciones Web** de la **Editorial Garceta** realizado por **Jorge Sánchez**
 
-## Recommended IDE Setup
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vite.dev/config/).
-
-## Project Setup
-
+## Preparación del proyecto
+Desde el terminal del sistema en este directorio, ejecutar:
 ```sh
 npm install
 ```
 
-### Compile and Hot-Reload for Development
+### Para compilar y probar el proyecto en modo desarrollo
 
 ```sh
 npm run dev
 ```
 
-### Compile and Minify for Production
+### Para compilar el proyecto para producción
+Creará la carpeta `dist` con los archivos optimizados para producción.
 
 ```sh
 npm run build
